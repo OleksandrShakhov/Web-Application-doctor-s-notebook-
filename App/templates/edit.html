@@ -1,0 +1,53 @@
+{% extends 'add.html' %}
+
+<!-- Title on tab browser -->
+{% block title %} Edit Patient {% endblock title %}
+
+<!-- Navbar content -->
+{% block navbar-content %}
+<i class="fas fa-user-edit"></i>&nbsp;&nbsp;{{ patient.name }}
+{% endblock navbar-content %}
+
+<!-- Title in card -->
+{% block card-title %}
+<strong>Registered at : </strong> <span class="text-primary"> {{ patient.created_at | date:'m/d/Y (H:i)' }}</span>
+{% endblock card-title %}
+
+<!-- Extends Add Button for desktop and Tablet -->
+{% block Btn-content1 %}
+<i class="fas fa-server"></i>&nbsp;&nbsp; Save Changes
+{% endblock Btn-content1 %}
+
+<!-- Extends Add Button for smartphone -->
+{% block Btn-content2 %}
+<i class="fas fa-hdd"></i>&nbsp;&nbsp; Save
+{% endblock Btn-content2 %}
+
+<!-- Form action -->
+{% block action %} action="/edit_patient" {% endblock action %}
+
+<!-- ========== Extends all <inputs> from add.html =========== -->
+<!-- ID -->
+{% block Value-id %}
+<div class="input-group mb-3" title="Patient ID">
+	<span class="side-label btn border-secondary bg-light text-small"><i class="fas fa-id-badge"></i></span>
+	<input type="text" class="form-control text-small" name="id" value="{{ patient.id }}" readonly>
+</div>
+{% endblock Value-id %}
+<!-- Name -->
+{% block Value-name %}value='{{ patient.name }}'{% endblock Value-name %}
+<!-- Phone -->
+{% block Value-phone %}value='{{ patient.phone }}'{% endblock Value-phone %}
+<!-- Email -->
+{% block Value-email %}value='{{ patient.email }}'{% endblock Value-email %}
+<!-- Age -->
+{% block Value-age %}value='{{ patient.age }}'{% endblock Value-age %}
+<!-- Gender -->
+{% block option %} <option style="background-color: #d3d3d3; color: #007bff;">{{ patient.gender }}</option> {% endblock option %}
+{% block Value-gender %}value='{{ patient.gender }}'{% endblock Value-gender %}
+<!-- Diagnosis -->
+{% block Value-diagnosis %}value='{{ patient.diagnosis }}'{% endblock Value-diagnosis %}
+<!-- Note -->
+{% block Value-note %}{{ patient.note }}{% endblock Value-note %}
+
+
